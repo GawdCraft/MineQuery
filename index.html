@@ -5,81 +5,53 @@
 </head>
 <body>
 
-<div id="mc_gs-main">
-<p><span id="error">Loading...</p>
-<p><b>Online: </b><span id="online"></span></p>
-<p><b>IP: </b><span id="ip"></span></p>
-<p><b>Port: </b><span id="port"></span></p>
-<p><b>Hostname: </b><span id="hostname"></span></p>
-<p><b>Version: </b><span id="version"></span></p>
-<p><b>Software: </b><span id="software"></span></p>
-<p><b>Protocol Name: </b><span id="protocol-name"></span></p>
-<p><b>Protocol Version: </b><span id="protocol-version"></span></p>
-<p><b>EULA Blocked: </b><span id="eula-blocked"></span></p>
-<p><b>Players Online: </b><span id="players-online"></span></p>
-<p><b>Players Max: </b><span id="players-max"></span></p>
-<p><b>MOTD (Raw): </b><span id="motd-raw"></span></p>
-<p><b>MOTD (Clean): </b><span id="motd-clean"></span></p>
-<p><b>MOTD (HTML): </b><span id="motd-html"></span></p>
-<p><b>Game Mode: </b><span id="gamemode"></span></p>
-<p><b>Server ID: </b><span id="serverid"></span></p>
-<p><b>Map (Raw): </b><span id="map-raw"></span></p>
-<p><b>Map (Clean): </b><span id="map-clean"></span></p>
-<p><b>Map (HTML): </b><span id="map-html"></span></p>
-<p><b>Info (Raw): </b><b>: </b><span id="info-raw"></span></p>
-<p><b>Info (Clean): </b><span id="info-clean"></span></p>
-<p><b>Info (HTML): </b><span><span id="info-html"></span></p>
-<p><b>Icon: </b><span><span id="icon"></span></p>
-<p><b>Plugins:</b></p>
-<ul id="plugins"></ul>
-<p><b>Mods:</b></p>
-<ul id="mods"></ul>
-<p><b>Players:</b></p>
-<ul id="players-list">
-</ul>
+<div id="minecraft_server">
+	<p><span id="error">Loading...</p>
+	<p><b>Online: </b><span id="online"></span></p>
+	<p><b>IP: </b><span id="ip"></span></p>
+	<p><b>Port: </b><span id="port"></span></p>
+	<p><b>Hostname: </b><span id="hostname"></span></p>
+	<p><b>Version: </b><span id="version"></span></p>
+	<p><b>Software: </b><span id="software"></span></p>
+	<p><b>Protocol Name: </b><span id="protocol-name"></span></p>
+	<p><b>Protocol Version: </b><span id="protocol-version"></span></p>
+	<p><b>EULA Blocked: </b><span id="eula-blocked"></span></p>
+	<p><b>Players Online: </b><span id="players-online"></span></p>
+	<p><b>Players Max: </b><span id="players-max"></span></p>
+	<p><b>MOTD (Raw): </b><span id="motd-raw"></span></p>
+	<p><b>MOTD (Clean): </b><span id="motd-clean"></span></p>
+	<p><b>MOTD (HTML): </b><span id="motd-html"></span></p>
+	<p><b>Game Mode: </b><span id="gamemode"></span></p>
+	<p><b>Server ID: </b><span id="serverid"></span></p>
+	<p><b>Map (Raw): </b><span id="map-raw"></span></p>
+	<p><b>Map (Clean): </b><span id="map-clean"></span></p>
+	<p><b>Map (HTML): </b><span id="map-html"></span></p>
+	<p><b>Info (Raw): </b><b>: </b><span id="info-raw"></span></p>
+	<p><b>Info (Clean): </b><span id="info-clean"></span></p>
+	<p><b>Info (HTML): </b><span><span id="info-html"></span></p>
+	<p><b>Icon: </b><span><span id="icon"></span></p>
+	<p><b>Plugins:</b></p>
+	<ul id="plugins"></ul>
+	<p><b>Mods:</b></p>
+	<ul id="mods"></ul>
+	<p><b>Players:</b></p>
+	<ul id="players-list"></ul>
 </div>
 
-<br><hr><br>
-
-<div id="mc_gs-java">
-<p><span id="mc_gs-java_error">Loading...</p>
-<p><b>Online: </b><span id="mc_gs-java_online"></span></p>
-<p><b>Version: </b><span id="mc_gs-java_version"></span></p>
-<p><b>Players Online: </b><span id="mc_gs-java_players-online"></span></p>
-<p><b>Players Max: </b><span id="mc_gs-java_players-max"></span></p>
-<p><b>MOTD (HTML): </b><span id="mc_gs-java_motd-html"></span></p>
-<p><b>Players:</b></p>
-<ul id="mc_gs-java_players-list">
-</ul>
-</div>
-
-<br><hr><br>
-
-<div id="mc_gs-bedrock">
-<p><span id="mc_gs-bedrock_error">Loading...</p>
-<p><b>Online: </b><span id="mc_gs-bedrock_online"></span></p>
-<p><b>Version: </b><span id="mc_gs-bedrock_version"></span></p>
-<p><b>Players Online: </b><span id="mc_gs-bedrock_players-online"></span></p>
-<p><b>Players Max: </b><span id="mc_gs-bedrock_players-max"></span></p>
-<p><b>MOTD (HTML): </b><span id="mc_gs-bedrock_motd-html"></span></p>
-<p><b>Players:</b></p>
-<ul id="mc_gs-bedrock_players-list">
-</ul>
-</div>
 
 
 <script src="MineQuery.js"></script>
+
 <script type="text/javascript">
 
-// <div id="[PREFIX]_[SERVER]_[ITEM]">
-var idPrefix = "mc_";
+var QUERY_STRING = window.location.search;
+var URL_PARAMS = new URLSearchParams(QUERY_STRING);
 
-// servers.set([ID], [IP])
-servers.set("gs-main", "gawdscape.x10.mx");
-servers.set("gs-java", "gawdscape.x10.mx:25583");
-servers.set("gs-bedrock", "bedrock:gawdscape.x10.mx:25585");
+var ARG_IP = URL_PARAMS.get("ip");
+if (ARG_IP) {
+	servers.set("server", ARG_IP);
+}
 
-// Query All Servers
 servers.forEach((serverIP, serverID) => {
 	queryServer(serverID);
 });
